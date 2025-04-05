@@ -58,11 +58,11 @@ module.exports = function (pgPool) {
     console.log("sql: ", sql);
     console.log("params: ", params);
 
-    pool.query(sql, params, function (error, books) {
+    pool.query(sql, params, function (error, result) {
       if (error) {
         return callback(error, null);
       }
-      return callback(null, books.rows);
+      return callback(null, result.rows);
     });
   }
 
@@ -83,11 +83,11 @@ module.exports = function (pgPool) {
     console.log("sql: ", sql);
     console.log("params: ", params);
 
-    pool.query(sql, params, function (error, books) {
+    pool.query(sql, params, function (error, result) {
       if (error) {
         return callback(error, null);
       }
-      return callback(null, books.rows);
+      return callback(null, result.rows);
     });
   }
   function deleteBook(bookId, callback) {
@@ -96,12 +96,31 @@ module.exports = function (pgPool) {
     console.log("sql: ", sql);
     console.log("params: ", params);
 
-    pool.query(sql, params, function (error, books) {
+    pool.query(sql, params, function (error, result) {
       if (error) {
         return callback(error, null);
       }
-      return callback(null, books.rows);
+      return callback(null, result.rows);
     });
   }
-  return { getBooks, postBook, getBookByID, deleteBook };
+  function borrowingBook(info, callback) {
+    const { userId, bookId, borrowedDate, returnedDate } = info;
+
+    const params = [userId, bookId, borrowedDate, returnedDate];
+    let sql = `
+                insert into 
+                borrowing_history(user_id,book_id,borrowed_date,returned_date)
+                values($${1},$${2},$${3},$${4})`;
+
+    console.log("sql: ", sql);
+    console.log("params: ", params);
+    pool.query(sql, params, function (error, result) {
+      if (error) {
+        console.log(error);
+        return callback(error, null);
+      }
+      return callback(null, result.rows);
+    });
+  }
+  return { getBooks, postBook, getBookByID, deleteBook, borrowingBook };
 };

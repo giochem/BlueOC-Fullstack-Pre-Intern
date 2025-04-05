@@ -4,7 +4,7 @@ const dalUser = require("../dal/user")(pgPool);
 const bcrypt = require("bcryptjs");
 const route = express.Router();
 
-route.post("/users", function (req, res) {
+route.post("/", function (req, res) {
   const { username, name, password, role } = req.body;
 
   const saltRounds = 10;
@@ -30,7 +30,7 @@ route.post("/users", function (req, res) {
   });
 });
 
-route.get("/users", function (req, res) {
+route.get("/", function (req, res) {
   dalUser.getUsers(function (error, users) {
     if (error) {
       return res.status(500).json({ message: "Internal Server Error" });
@@ -39,7 +39,7 @@ route.get("/users", function (req, res) {
   });
 });
 
-route.get("/users/:id", function (req, res) {
+route.get("/:id", function (req, res) {
   const userId = parseInt(req.params.id);
 
   dalUser.getUserById(userId, function (error, user) {
@@ -53,7 +53,7 @@ route.get("/users/:id", function (req, res) {
   });
 });
 
-route.put("/users/:id", function (req, res) {
+route.put("/:id", function (req, res) {
   const userId = parseInt(req.params.id);
   const updatedUser = req.body;
 
@@ -81,7 +81,7 @@ route.put("/users/:id", function (req, res) {
   });
 });
 
-route.delete("/users/:id", function (req, res) {
+route.delete("/:id", function (req, res) {
   const userId = parseInt(req.params.id);
 
   dalUser.getUserById(userId, function (error, user) {

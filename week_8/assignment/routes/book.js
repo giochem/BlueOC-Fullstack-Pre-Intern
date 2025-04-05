@@ -67,4 +67,23 @@ route.delete("/:id", middlewares.authAdmin, function (req, res) {
   });
 });
 
+route.post("/borrowing-book", middlewares.authAdmin, function (req, res) {
+  const { userId, bookId, borrowedDate, returnedDate } = req.body;
+
+  dalBook.borrowingBook(
+    {
+      userId: parseInt(userId),
+      bookId: parseInt(bookId),
+      borrowedDate: new Date(borrowedDate).toISOString(),
+      returnedDate: new Date(returnedDate).toISOString(),
+    },
+    function (error, books) {
+      if (error) {
+        return res.status(500).json({ message: "Internal Server Error" });
+      }
+      return res.status(200).json({ message: "Borrowing book successfully" });
+    }
+  );
+});
+
 module.exports = route;

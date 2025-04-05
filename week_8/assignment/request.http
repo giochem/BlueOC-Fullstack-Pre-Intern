@@ -1,4 +1,3 @@
-
 ### POST /auth/login
 POST http://localhost:3000/auth/login
 Content-Type: application/json
@@ -43,7 +42,7 @@ Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbW
 
 ### GET api/books
 GET http://localhost:3000/api/books
-Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg0NjE0OSwiZXhwIjoxNzQzODQ5NzQ5fQ.Y-gTCTtd1KS_-p945pn8YK_dqxyUjNzDS_pzLJfI9js
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg1ODU3NSwiZXhwIjoxNzQzODYyMTc1fQ.NV2cbRx8rLrbSOytwNTQ2tzyEqKLp6OPBYWMtSXily4
 
 ### GET api/books/:id
 GET http://localhost:3000/api/books/1
@@ -51,11 +50,11 @@ Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbW
 
 ### POST api/books
 POST http://localhost:3000/api/books
-Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg0NjE0OSwiZXhwIjoxNzQzODQ5NzQ5fQ.Y-gTCTtd1KS_-p945pn8YK_dqxyUjNzDS_pzLJfI9js
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg1OTE3MiwiZXhwIjoxNzQzODYyNzcyfQ.mFOInIX34ZXqU0ue0UzvlnSks7kRfCx0ofKybb52QwM
 content-type: application/json
 
 {
-    "title": "demo",
+    "title": "demo1",
     "author": "demo",
     "genre": "12",
     "publishedYear": 1963
@@ -64,3 +63,19 @@ content-type: application/json
 ### DELETE api/books/:id
 DELETE http://localhost:3000/api/books/1
 Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg0NjE0OSwiZXhwIjoxNzQzODQ5NzQ5fQ.Y-gTCTtd1KS_-p945pn8YK_dqxyUjNzDS_pzLJfI9js
+
+### POST /api/books/borrowing-book
+POST http://localhost:3000/api/books/borrowing-book
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg1OTE3MiwiZXhwIjoxNzQzODYyNzcyfQ.mFOInIX34ZXqU0ue0UzvlnSks7kRfCx0ofKybb52QwM
+content-type: application/json
+
+{
+    "userId": 10,
+    "bookId": 3,
+    "borrowedDate": "10/09/2024",
+    "returnedDate": "10/10/2024"
+}
+
+### GET /api/analytics/books/most-borrowed
+GET http://localhost:3000/api/analytics/books/most-borrowed
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg1ODk2NiwiZXhwIjoxNzQzODYyNTY2fQ.UA0wJFy9gQEBW2t6rV6BtUN8vo-5_d-CTUP0rvL-mNg
