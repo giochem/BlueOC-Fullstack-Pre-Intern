@@ -1,0 +1,66 @@
+
+### POST /auth/login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin2",
+    "password": "123456"
+}
+
+#### POST /api/users
+POST http://localhost:3000/api/users
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQzODQ0OTg3LCJleHAiOjE3NDM4NDg1ODd9.MQCyyBVRxj9QHs-OjTCWHjFIbacgjET-SrL8iVzJCbE
+Content-Type: application/json
+
+{
+    "username": "admin2",
+    "password": "123456",
+    "role": "admin"
+}
+
+#### GET /api/users
+GET http://localhost:3000/api/users
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQzODQ0OTg3LCJleHAiOjE3NDM4NDg1ODd9.MQCyyBVRxj9QHs-OjTCWHjFIbacgjET-SrL8iVzJCbE
+### GET /api/users/:id
+GET http://localhost:3000/api/users/1
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQzODQ0OTg3LCJleHAiOjE3NDM4NDg1ODd9.MQCyyBVRxj9QHs-OjTCWHjFIbacgjET-SrL8iVzJCbE
+
+### PUT /api/users/:id
+PUT http://localhost:3000/api/users/1
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQzODQ0OTg3LCJleHAiOjE3NDM4NDg1ODd9.MQCyyBVRxj9QHs-OjTCWHjFIbacgjET-SrL8iVzJCbE
+Content-Type: application/json
+
+{
+    "username": "admin1",
+    "name": "update name",
+    "password": "update password"
+}
+
+### DELETE /api/users/:id
+DELETE http://localhost:3000/api/users/9
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzQzODQ0OTg3LCJleHAiOjE3NDM4NDg1ODd9.MQCyyBVRxj9QHs-OjTCWHjFIbacgjET-SrL8iVzJCbE
+
+### GET api/books
+GET http://localhost:3000/api/books
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg0NjE0OSwiZXhwIjoxNzQzODQ5NzQ5fQ.Y-gTCTtd1KS_-p945pn8YK_dqxyUjNzDS_pzLJfI9js
+
+### GET api/books/:id
+GET http://localhost:3000/api/books/1
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg0NjE0OSwiZXhwIjoxNzQzODQ5NzQ5fQ.Y-gTCTtd1KS_-p945pn8YK_dqxyUjNzDS_pzLJfI9js
+
+### POST api/books
+POST http://localhost:3000/api/books
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg0NjE0OSwiZXhwIjoxNzQzODQ5NzQ5fQ.Y-gTCTtd1KS_-p945pn8YK_dqxyUjNzDS_pzLJfI9js
+content-type: application/json
+
+{
+    "title": "demo",
+    "author": "demo",
+    "genre": "12",
+    "publishedYear": 1963
+}
+
+### DELETE api/books/:id
+DELETE http://localhost:3000/api/books/1
+Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0Mzg0NjE0OSwiZXhwIjoxNzQzODQ5NzQ5fQ.Y-gTCTtd1KS_-p945pn8YK_dqxyUjNzDS_pzLJfI9js
